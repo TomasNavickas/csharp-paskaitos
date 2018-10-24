@@ -44,6 +44,13 @@ namespace _16_001
             DidziausiaKnyga().Isvedimas();
 
             Console.WriteLine("----");
+            Console.WriteLine("Brangiausia knyga");
+            BrangiausiaKnyga().Isvedimas();
+
+            Console.WriteLine("-----");
+
+            Console.WriteLine("Pigiausia Knyga");
+            PigiausiaKnyga().Isvedimas();
 
         }
         public Knyga DidziausiaKnyga()
@@ -70,11 +77,41 @@ namespace _16_001
             }
 
             return apyvarta;
-        } 
+        }
+        public Knyga BrangiausiaKnyga()
+        {
+            var brangiausia = Knygos.First();
+
+            foreach (var knyga in Knygos)
+            {
+                if (knyga.Kaina > brangiausia.Kaina)
+                {
+                    brangiausia = knyga;
+                }
+            }
+            return brangiausia;
+        }
+        public Knyga PigiausiaKnyga()
+        {
+            var pigiausia = Knygos.First();
+
+            foreach (var knyga in Knygos)
+            {
+                if (knyga.Kaina < pigiausia.Kaina)
+                {
+                    pigiausia = knyga;
+                }
+            }
+            return pigiausia;
+        }
+        public double PuslapiuSkaicius()
+        {
+
+        }
     }
 }
 // parasyti
-// - brangiausia knyga
-// - pigiausia knyga 
-// bendras puslapiu skaicius visu knygu
-// - kainos vidurkis
+// - brangiausia knyga +
+// - pigiausia knyga +
+// bendras puslapiu skaicius visu knygu -
+// - kainos vidurkis -
